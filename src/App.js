@@ -21,10 +21,12 @@ class App extends React.Component{
   render() {
     return (
       <div className="App">
-      <CardList name='Adam'>
-      {this.state.monsters.map(monster => (
-          <h1 key={monster.id}>{monster.name}</h1>
-          ))}
+      <input
+        type='search'
+        placeholder='search monsters'
+        onChange={e => this.setState({searchField: e.target.value})}
+      />
+      <CardList monsters={this.state.monsters}>
       </CardList>
       </div>
     );
